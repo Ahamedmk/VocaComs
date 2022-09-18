@@ -5,15 +5,15 @@
   }
   
   body{
+    height: 100vh;
     display: flex;
-    font-family: "Courier New", Courier, monospace;
-    background-color: azure;
     flex-direction: column;
     justify-content: center;
+    font-family: "Courier New", Courier, monospace;
+    background-color: azure;
+    
     align-items: center;
-    min-height: 100vh;
-    min-width: 100vw;
-
+    
     /* width: 100vw;  */
   }
   .score{
@@ -24,12 +24,14 @@
     font-size: 20PX;
     /* border: 1px solid; */
     width: 100%;
+    margin-bottom: 27px;
   }
   .revoir,.correct{
     display: flex;
     justify-content: center;
     align-items: center;
     border: 2px solid;
+    border-radius: 50%;
     width: 40px;
     height: 40px;
   }
@@ -40,7 +42,7 @@
     justify-content: flex-end;
     align-items: center;
     font-family:'Anton', sans-serif;
-    height: 189px;
+    height: 250px;
     width: 95%;
     font-weight: 400;
     font-size: 2rem;
@@ -58,11 +60,15 @@
 
   }
   .motTrad{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-family:'Anton', sans-serif;
     font-weight: 400;
     font-size: 30px;
-    padding-bottom: 50px;
+    height:250px;
+    /* padding-bottom: 50px; */
   }
   .card {
     
@@ -74,7 +80,7 @@
     border-radius: 5px;
     /* margin-top: 70px; */
     width: 295px;
-    height: 500px;
+    /* height: 500px; */
     box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.23);
 -webkit-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.23);
 -moz-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.23);
