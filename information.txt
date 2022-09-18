@@ -8,3 +8,12 @@ ressources
 -----------------
 chaine youtube : https://www.youtube.com/watch?v=KwyRjEBPrQc
 livre vocabulaire: 
+
+------------------------------------------
+<i class="fa-solid fa-eye"></i>  : oeil ouvert
+<i class="fa-solid fa-eye-slash"></i>  : oeil fermé
+<i class="fa-solid fa-books"></i>  : livre revisé 
+<i class="fa-regular fa-thumbs-up"></i> :pouce levé 
+<i class="fa-solid fa-volume"></i> : haut parleur
+------------------------------------------------------
+

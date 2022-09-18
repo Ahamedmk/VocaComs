@@ -7,14 +7,31 @@
   body{
     display: flex;
     font-family: "Courier New", Courier, monospace;
+    background-color: azure;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+
+    /* width: 100vw;  */
   }
-  h1{
-    display: block;
-    text-align: center;
-    margin-top: 20px;
+  .score{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 900;
+    font-size: 20PX;
+    /* border: 1px solid; */
+    width: 100%;
+  }
+  .revoir,.correct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid;
+    width: 40px;
+    height: 40px;
   }
 
   .motComorien{
@@ -53,12 +70,11 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 100vh; 
-    /* border: 1px solid black; */
+    background-color: white;
     border-radius: 5px;
-    margin-top: 70px;
-    width: 250px;
-    height: 400px;
+    /* margin-top: 70px; */
+    width: 295px;
+    height: 500px;
     box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.23);
 -webkit-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.23);
 -moz-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.23);
@@ -69,27 +85,34 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    
     width: 70%;
-    margin-top: 50px;
+     margin-top: 50px; 
   }
+
   #oeil{
     display:none;
   }
+
   .fa-solid{
     display: flex;
     justify-content:center;
     align-items: center;
+    background-color: white;
+    font-size: 40px;
     border: 2px solid Black;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 10px;
     box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.23);
 -webkit-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.23);
 -moz-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.23);
   }
-  .fa-book{
+
+  .fa-book, .revoir{
     border-color: red;
   }
-  .fa-thumbs-up{
+
+  .fa-thumbs-up, .correct{
     border-color: green;
   }
