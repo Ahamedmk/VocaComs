@@ -11,6 +11,7 @@
     justify-content: center;
     font-family: "Courier New", Courier, monospace;
     background-color: azure;
+    /* background-image: linear-gradient(to bottom, #041d29, #004f60, #008675, #00bc60, #a8eb12); */
     
     align-items: center;
     
@@ -76,6 +77,10 @@
     -moz-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.23); 
     /* padding-bottom: 50px; */
   }
+
+  .fr, .motCom{
+    margin-top: 85px;
+  }
   .card {
     perspective: 1000px;
     transition: transform 0.2 ease-out;
@@ -124,7 +129,7 @@
     border-radius: 5px;
     background: white; 
     display: flex;
-    justify-content: center;
+    justify-content:flex-start;
     align-items: center;
   }
 
@@ -133,7 +138,7 @@
     align-items: center;
     justify-content: space-around;
     
-    width: 70%;
+     width: 70%; 
      margin-top: 50px; 
   }
 
@@ -163,3 +168,9 @@
   .fa-thumbs-up, .correct{
     border-color: green;
   }
+
+img{
+  width: 150px;
+  height: 150px;
+  
+}
