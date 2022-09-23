@@ -174,3 +174,31 @@ img{
   height: 150px;
   
 }
+
+.recap, .conseil{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: x-large;
+  /* border: 1px solid greenyellow; */
+}
+.conseil{
+  margin-top: 40px;
+}
+.choice{
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin-top: 20px;
+  /* border: 1px solid red; */
+}
+
+.nonAcquis, .restart{
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: x-large;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  padding: 5px 10px;
+}
+

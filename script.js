@@ -24,6 +24,7 @@ const newCards = [
 
 console.log(newCards[1].motComorien);
 const body = document.querySelector("body");
+const final = document.querySelector(".final");
 const nbrCarte = document.querySelector(".nbreCarte");
 const cards = document.querySelector(".card");
 const motComs = document.querySelector(".motComorien");
@@ -39,9 +40,12 @@ divMot.className = "motCom";
 const faEye = document.querySelector(".fa-eye");
 const doubleFace = document.querySelector(".double-face");
 const revision = document.querySelector(".revoir");
+const result = document.querySelector(".result");
 let correct = document.querySelector(".correct");
 let cardCorrect = document.querySelector(".fa-thumbs-up");
 let cardRevision = document.querySelector(".fa-book");
+let recap = document.querySelector(".recap");
+let conseil = document.querySelector(".conseil");
 console.log(listen);
 let nbreMot = 0;
 let faux = [];
@@ -49,7 +53,7 @@ let vrai = [];
 
 
 //---les audios---------------------
-let son = document.createElement("audio");
+const son = document.createElement("audio");
 son.src = "audio/apvasa.mp3";
 doubleFace.appendChild(son);
 
@@ -107,6 +111,9 @@ cardCorrect.addEventListener("click", function(){
   vrai.push(nbreMot);
   nbrCarte.textContent = `${nbreMot}/${newCards.length}`;
   correct.textContent = `${vrai.length}`;
+  if (nbreMot === newCards.length){
+  document.location.href="index1.html";
+  }
   createCard()
 })
  }
