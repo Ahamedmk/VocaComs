@@ -14,6 +14,7 @@ body{
     display: flex;
     justify-content: center;
     margin: 0 auto;
+    
 }
 
 
@@ -50,8 +51,9 @@ img{
     font-weight: 200;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width: 60px;
-    padding: 10px   40px;
+    padding: 10px 56px;
     border: 2px solid white;
     color: white;
     margin: 0 auto;
+    border-radius: 10px;
 }

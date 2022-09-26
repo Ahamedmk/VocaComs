@@ -47,6 +47,7 @@ let cardCorrect = document.querySelector(".fa-thumbs-up");
 let cardRevision = document.querySelector(".fa-book");
 let recap = document.querySelector(".recap");
 let conseil = document.querySelector(".conseil");
+const comentaire = document.querySelector(".comentaire");
 console.log(listen);
 let nbreMot = 0;
 let faux = [];
@@ -112,12 +113,7 @@ cardCorrect.addEventListener("click", function(){
   vrai.push(nbreMot);
   nbrCarte.textContent = `${nbreMot}/${newCards.length}`;
   correct.textContent = `${vrai.length}`;
-  if (nbreMot === newCards.length){
-    final.style.display = "block";
-    complet.style.display = "none";
-    
-  // document.location.href="index1.html";
-  }
+  recapitul()
   createCard()
 })
  }
@@ -133,20 +129,48 @@ cardCorrect.addEventListener("click", function(){
     console.log(faux.length);
     nbrCarte.textContent = `${nbreMot}/${newCards.length}`;
     revision.textContent = `${faux.length}`;
+    recapitul()
     createCard()
   })
    }
    newEtapeRevision()
 
     function recapitul(){
-     recap.textContent = ` Résultat:
-    
-     vous avez obtenu:
-    
-     ${vrai.length} bonnes réponse
-    
-     ${faux.length} mauvaises réponses`
-    }
-    recapitul()
+      if (nbreMot === newCards.length){
+        final.style.display = "flex";
+        complet.style.display = "none";
+  
+        recap.innerHTML = `  <u>Résultat</u> 
+        
+        <br>vous avez obtenu:<br>
+        
+         <div><span>${vrai.length}</span> bonne(s) réponse(s) et <br>
+        
+         <span>${faux.length}</span> mauvaise(s) réponse(s)</div>`
+
+         if(vrai.length >= (80*(newCards.length))/100){
+          conseil.innerHTML = ` Félicitation!!
+          <br>
+          Continuez!! votre apprentissage,
+          <br>
+          vous etes sur la bonne voix!!`
+         }else if(vrai.length >= (50*(newCards.length))/100){
+          conseil.innerHTML = ` Très bien !!
+          <br>
+          Ne lachez pas prise!!,
+          <br>
+          vous etes en nette progression`
+         }else{
+          conseil.innerHTML = `N'abandonnez pas!!
+          <br>
+          Et recommencez!! encore et encore,
+          <br>
+          car c'est en forgeant qu'on devient forgeron 😉`
+          
+         }
+         
+      }
+     }
+     recapitul()
 
    console.log(final);

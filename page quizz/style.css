@@ -178,19 +178,21 @@ img{
 .recap, .conseil{
   display:flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: x-large;
   /* border: 1px solid greenyellow; */
 }
-.conseil{
-  margin-top: 40px;
-}
+/* .conseil{
+  margin-bottom: 100px;
+} */
 .choice{
   display: flex;
   justify-content: space-around;
-  width: 80%;
-  margin-top: 20px;
+  /* width: 80%; */
+  margin-top: 60px;
   /* border: 1px solid red; */
 }
 
@@ -203,8 +205,19 @@ img{
 }
   .final{
   display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
 } 
 .complet{
   display: block;
 }
-
+span{
+  color: red;
+}
+.commentaire{
+display: block;
+margin: 0 auto;
+width: 250px;
+height: 250px;
+}
