@@ -25,6 +25,7 @@ const newCards = [
 console.log(newCards[1].motComorien);
 const body = document.querySelector("body");
 const final = document.querySelector(".final");
+const restart = document.querySelector(".restart");
 const complet = document.querySelector(".complet");
 const nbrCarte = document.querySelector(".nbreCarte");
 const cards = document.querySelector(".card");
@@ -39,6 +40,7 @@ listen.className = "fa-solid fa-ear-listen";
 listen.setAttribute('id','son');
 divMot.className = "motCom";
 const faEye = document.querySelector(".fa-eye");
+const faEyeNone = document.querySelector("#oeil");
 const doubleFace = document.querySelector(".double-face");
 const revision = document.querySelector(".revoir");
 const result = document.querySelector(".result");
@@ -50,6 +52,8 @@ let conseil = document.querySelector(".conseil");
 const comentaire = document.querySelector(".comentaire");
 console.log(listen);
 let nbreMot = 0;
+let wordMotComorien = newCards[nbreMot].motComorien;
+
 let faux = [];
 let vrai = [];
 
@@ -90,17 +94,27 @@ playSound()
 //---------------retourner la carte recto/verso-------------------------
 faEye.addEventListener("click", function () {
   doubleFace.classList.toggle("active");
-    
+  faEyeNone.style.display= "flex";
+  faEyeNone.style.color= "red";
+  faEye.style.display= "none";  
    })
 
+   faEyeNone.addEventListener("click", function () {
+    doubleFace.classList.toggle("active");
+    faEyeNone.style.display= "none";
+    faEye.style.display= "flex";  
+     })
+
 //---------------------créer la carte -----------------------------
+// const wordMotFr = newCards[nbreMot].motFr;
  function createCard (){ 
-divMot.textContent = newCards[nbreMot].motComorien;
+divMot.textContent = wordMotComorien;
+divMotFr.textContent = newCards[nbreMot].motFr;
 motComs.appendChild(divMot);
 motComs.appendChild(listen);
 divMotFr.className = "fr";
 motTrad.appendChild(divMotFr);
-divMotFr.textContent = newCards[nbreMot].motFr;
+
  }
  createCard()
 
@@ -113,7 +127,9 @@ cardCorrect.addEventListener("click", function(){
   vrai.push(nbreMot);
   nbrCarte.textContent = `${nbreMot}/${newCards.length}`;
   correct.textContent = `${vrai.length}`;
-  recapitul()
+  
+  setTimeout(() => recapitul(),2000);
+  // recapitul()
   createCard()
 })
  }
@@ -122,6 +138,7 @@ cardCorrect.addEventListener("click", function(){
  //----------------------------carte à revoir-------------------
  function newEtapeRevision(){
   cardRevision.addEventListener("click", function(){
+    // cardRevision.className = "fa-shake";
     divMot.textContent = "";
     divMotFr.textContent = "";
     nbreMot += 1;
@@ -129,7 +146,9 @@ cardCorrect.addEventListener("click", function(){
     console.log(faux.length);
     nbrCarte.textContent = `${nbreMot}/${newCards.length}`;
     revision.textContent = `${faux.length}`;
-    recapitul()
+    // cards.style.display = "none";
+    setTimeout(() => recapitul(),2000);
+    // recapitul()
     createCard()
   })
    }
@@ -137,6 +156,7 @@ cardCorrect.addEventListener("click", function(){
 
     function recapitul(){
       if (nbreMot === newCards.length){
+        // cards.innerHTML = "";
         final.style.display = "flex";
         complet.style.display = "none";
   
@@ -172,5 +192,9 @@ cardCorrect.addEventListener("click", function(){
       }
      }
      recapitul()
+
+     restart.addEventListener("click", function(){
+      location.reload();
+     })
 
    console.log(final);

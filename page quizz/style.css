@@ -145,6 +145,10 @@
   #oeil{
     display:none;
   }
+  .fa-shake{
+    display: block;
+    --fa-animation-duration: 4s;
+  }
 
   .fa-solid{
     display: flex;
