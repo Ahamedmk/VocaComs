@@ -22,7 +22,6 @@ const newCards = [
   }
 ];
 
-console.log(newCards[1].motComorien);
 const body = document.querySelector("body");
 const final = document.querySelector(".final");
 const restart = document.querySelector(".restart");
@@ -52,8 +51,6 @@ let conseil = document.querySelector(".conseil");
 const comentaire = document.querySelector(".comentaire");
 console.log(listen);
 let nbreMot = 0;
-// let wordMotComorien = newCards[nbreMot].motComorien;
-
 let faux = [];
 let vrai = [];
 
@@ -106,7 +103,6 @@ faEye.addEventListener("click", function () {
      })
 
 //---------------------créer la carte -----------------------------
-// const wordMotFr = newCards[nbreMot].motFr;
  function createCard (){ 
 divMot.textContent = newCards[nbreMot].motComorien;
 divMotFr.textContent = newCards[nbreMot].motFr;
@@ -114,7 +110,6 @@ motComs.appendChild(divMot);
 motComs.appendChild(listen);
 divMotFr.className = "fr";
 motTrad.appendChild(divMotFr);
-
  }
  createCard()
 
@@ -128,9 +123,9 @@ cardCorrect.addEventListener("click", function(){
   nbrCarte.textContent = `${nbreMot}/${newCards.length}`;
   correct.textContent = `${vrai.length}`;
   
-  setTimeout(() => recapitul(),2000);
-  // recapitul()
-  createCard()
+  // setTimeout(() => recapitul(),1000);
+   recapitul()
+  //  createCard()
 })
  }
  newEtape()
@@ -138,7 +133,7 @@ cardCorrect.addEventListener("click", function(){
  //----------------------------carte à revoir-------------------
  function newEtapeRevision(){
   cardRevision.addEventListener("click", function(){
-    // cardRevision.className = "fa-shake";
+     cardRevision.classList.add("fa-shake");
     divMot.textContent = "";
     divMotFr.textContent = "";
     nbreMot += 1;
@@ -146,49 +141,56 @@ cardCorrect.addEventListener("click", function(){
     console.log(faux.length);
     nbrCarte.textContent = `${nbreMot}/${newCards.length}`;
     revision.textContent = `${faux.length}`;
-    // cards.style.display = "none";
-    setTimeout(() => recapitul(),2000);
-    // recapitul()
-    createCard()
+     recapitul()
   })
+  
    }
    newEtapeRevision()
+
+   //---------compare nbre de carte avec le nbre total---------------------------
+   function compare(){doubleFace.style.display = "none";
+   final.style.display = "flex";
+   complet.style.display = "none";
+
+   recap.innerHTML = `  <u>Résultat</u> 
+   
+   <br>vous avez obtenu:<br>
+   
+    <div><span>${vrai.length}</span> bonne(s) réponse(s) et <br>
+   
+    <span>${faux.length}</span> mauvaise(s) réponse(s)</div>`
+
+    if(vrai.length >= (80*(newCards.length))/100){
+     conseil.innerHTML = ` Félicitation!!
+     <br>
+     Continuez!! votre apprentissage,
+     <br>
+     vous etes sur la bonne voix!!`
+    }else if(vrai.length >= (50*(newCards.length))/100){
+     conseil.innerHTML = ` Très bien !!
+     <br>
+     Ne lachez pas prise!!,
+     <br>
+     vous etes en nette progression`
+    }else{
+     conseil.innerHTML = `N'abandonnez pas!!
+     <br>
+     Et recommencez!! encore et encore,
+     <br>
+     car c'est en forgeant qu'on devient forgeron 😉`
+     
+    }
+   }
+   
+   //------------le temps d'apparition du resultat-------------------------
 
     function recapitul(){
       if (nbreMot === newCards.length){
         // cards.innerHTML = "";
-        final.style.display = "flex";
-        complet.style.display = "none";
-  
-        recap.innerHTML = `  <u>Résultat</u> 
-        
-        <br>vous avez obtenu:<br>
-        
-         <div><span>${vrai.length}</span> bonne(s) réponse(s) et <br>
-        
-         <span>${faux.length}</span> mauvaise(s) réponse(s)</div>`
-
-         if(vrai.length >= (80*(newCards.length))/100){
-          conseil.innerHTML = ` Félicitation!!
-          <br>
-          Continuez!! votre apprentissage,
-          <br>
-          vous etes sur la bonne voix!!`
-         }else if(vrai.length >= (50*(newCards.length))/100){
-          conseil.innerHTML = ` Très bien !!
-          <br>
-          Ne lachez pas prise!!,
-          <br>
-          vous etes en nette progression`
-         }else{
-          conseil.innerHTML = `N'abandonnez pas!!
-          <br>
-          Et recommencez!! encore et encore,
-          <br>
-          car c'est en forgeant qu'on devient forgeron 😉`
-          
-         }
+        setTimeout(() => compare(),500);
          
+      }else{
+        createCard()
       }
      }
      recapitul()

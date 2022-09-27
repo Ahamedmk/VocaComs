@@ -146,8 +146,10 @@
     display:none;
   }
   .fa-shake{
-    display: block;
-    --fa-animation-duration: 4s;
+     display: none; 
+     --fa-animation-duration: 2s; 
+     --fa-animation-iteration-count: 1; 
+     --fa-animation-timing: ease-in-out;
   }
 
   .fa-solid{
