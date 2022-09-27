@@ -52,7 +52,7 @@ let conseil = document.querySelector(".conseil");
 const comentaire = document.querySelector(".comentaire");
 console.log(listen);
 let nbreMot = 0;
-let wordMotComorien = newCards[nbreMot].motComorien;
+// let wordMotComorien = newCards[nbreMot].motComorien;
 
 let faux = [];
 let vrai = [];
@@ -108,7 +108,7 @@ faEye.addEventListener("click", function () {
 //---------------------créer la carte -----------------------------
 // const wordMotFr = newCards[nbreMot].motFr;
  function createCard (){ 
-divMot.textContent = wordMotComorien;
+divMot.textContent = newCards[nbreMot].motComorien;
 divMotFr.textContent = newCards[nbreMot].motFr;
 motComs.appendChild(divMot);
 motComs.appendChild(listen);
