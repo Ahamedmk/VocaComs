@@ -94,12 +94,14 @@ faEye.addEventListener("click", function () {
   faEyeNone.style.display= "flex";
   faEyeNone.style.color= "red";
   faEye.style.display= "none";  
+  cardRevision.classList.remove("fa-shake");
    })
 
    faEyeNone.addEventListener("click", function () {
     doubleFace.classList.toggle("active");
     faEyeNone.style.display= "none";
     faEye.style.display= "flex";  
+    cardRevision.classList.remove("fa-shake");
      })
 
 //---------------------créer la carte -----------------------------
