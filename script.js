@@ -18,5 +18,6 @@ deleteSpeed: 20
 const button = document.querySelector(".button")
 
 button.addEventListener("click", function(){
-    location.assign("page quizz/index.html")
+    // location.assign("page quizz/index.html")
+    location.assign("menu/index1.html")
 })

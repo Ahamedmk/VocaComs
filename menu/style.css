@@ -1,0 +1,107 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: "Courier New", Courier, monospace;
+    background-color: azure;
+    /* background-image: linear-gradient(to bottom, #041d29, #004f60, #008675, #00bc60, #a8eb12); */
+    
+    align-items: center;
+    
+    /* width: 100vw;  */
+  }
+
+  h1{
+    font-size: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+  ul {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    min-height: 400px;
+    /* border: 1px solid black; */
+    width: 100%;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 80%;
+    height: 70px;
+    background-color:white;
+    /* border: 1px solidred; */
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.23);
+    -webkit-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.23);
+    -moz-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.23);
+    /* animation: myAnim 1s ease 0s 1 normal forwards; */
+  }
+
+  /* .sentence {
+    
+    animation: myAnim 1s ease 0s 1 normal forwards;
+    opacity: 0;
+}
+
+  @keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: translateX(-250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+img{
+    width: 50px;
+}
+
+.expression {
+    animation: anim2 1s ease 0.2s 1 normal forwards;
+}
+@keyframes anim2 {
+	0% {
+		opacity: 0;
+		transform: translateX(250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.vocabulaire {
+    animation: myAnim3 1s ease 0.4s 1 normal forwards; 
+}
+@keyframes myAnim3 {
+	0% {
+		opacity: 0;
+		transform: translateX(-250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+ */
+img{
+    width: 50px;
+}

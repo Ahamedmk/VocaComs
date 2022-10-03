@@ -17,8 +17,39 @@ const newCards = [
     motFr: "traduire",
   },
   {
+    motComorien: "-andisa,u-",
+    motFr: "commencer",
+  }
+];
+
+const newCardsPro = [
+  {
+    motComorien: "weewe",
+    motFr: "toi",
+  },
+  {
+    motComorien: "-timizi,u",
+    motFr: "terminer",
+  },
+  {
+    motComorien: "pvaho",
+    motFr: "et toi",
+  },
+  {
+    motComorien: "mdjeni",
+    motFr: "étranger",
+  },
+  {
+    motComorien: "Fasiri",
+    motFr: "traduire",
+  },
+  {
     motComorien: "Hula",
     motFr: "Manger",
+  },
+  {
+    motComorien: "wuzisa",
+    motFr: "Demander",
   }
 ];
 
@@ -26,7 +57,7 @@ const body = document.querySelector("body");
 const final = document.querySelector(".final");
 const restart = document.querySelector(".restart");
 const complet = document.querySelector(".complet");
-const nbrCarte = document.querySelector(".nbreCarte");
+let nbrCarte = document.querySelector(".nbreCarte");
 const cards = document.querySelector(".card");
 const motComs = document.querySelector(".motComorien");
 const motTrad = document.querySelector(".motTrad");
@@ -41,7 +72,7 @@ divMot.className = "motCom";
 const faEye = document.querySelector(".fa-eye");
 const faEyeNone = document.querySelector("#oeil");
 const doubleFace = document.querySelector(".double-face");
-const revision = document.querySelector(".revoir");
+let revision = document.querySelector(".revoir");
 const result = document.querySelector(".result");
 let correct = document.querySelector(".correct");
 let cardCorrect = document.querySelector(".fa-thumbs-up");
@@ -49,11 +80,51 @@ let cardRevision = document.querySelector(".fa-book");
 let recap = document.querySelector(".recap");
 let conseil = document.querySelector(".conseil");
 const comentaire = document.querySelector(".comentaire");
-console.log(listen);
+const revoir = document.querySelector(".nonAcquis");
+let testO = newCards ;
 let nbreMot = 0;
 let faux = [];
 let vrai = [];
 
+ //-------------------testo--------------------
+ revoir.addEventListener("click", function() {
+  //  complet.innerHTML = "";
+  //  createCard(newCards);
+  testO = newCardsPro;
+   final.style.display = "none";
+   complet.style.display = "block";
+   doubleFace.style.display = "block";
+   correct.innerHTML = "";
+   revision.innerHTML = "";
+   nbrCarte.innerHTML = "";
+  nbreMot = 0;
+   faux = [];
+   vrai = [];
+   console.log(nbreMot)
+    // location.reload();
+   
+  console.log(testO);
+  createCard(testO);
+   newEtape(testO);
+  newEtapeRevision(testO);
+  console.log(nbreMot);
+  recapitul(testO);
+  console.log(faux.length);
+})
+
+//---------------------créer la carte -----------------------------
+
+function createCard (testO){ 
+  // const wordMotComs = testO[nbreMot].motComorien;
+  divMot.textContent = testO[nbreMot].motComorien;
+  divMotFr.textContent = testO[nbreMot].motFr;
+  motComs.appendChild(divMot);
+  motComs.appendChild(listen);
+  divMotFr.className = "fr";
+  motTrad.appendChild(divMotFr);
+   }
+  createCard(testO)
+  
 
 //---les audios---------------------
 const son = document.createElement("audio");
@@ -80,6 +151,8 @@ doubleFace.appendChild(son4);
 const translate = [son, son1, son2, son3, son4];
 console.log(translate[2]);
 
+
+
 //--------------jouer le son-------------------------- 
 function playSound(){
   doubleFace.addEventListener("click", function (){
@@ -104,36 +177,26 @@ faEye.addEventListener("click", function () {
     cardRevision.classList.remove("fa-shake");
      })
 
-//---------------------créer la carte -----------------------------
- function createCard (){ 
-divMot.textContent = newCards[nbreMot].motComorien;
-divMotFr.textContent = newCards[nbreMot].motFr;
-motComs.appendChild(divMot);
-motComs.appendChild(listen);
-divMotFr.className = "fr";
-motTrad.appendChild(divMotFr);
- }
- createCard()
 
  //------------------réponse ok-----------------------
- function newEtape(){
+ function newEtape(testO){
 cardCorrect.addEventListener("click", function(){
   divMot.textContent = "";
   divMotFr.textContent = "";
   nbreMot += 1;
   vrai.push(nbreMot);
-  nbrCarte.textContent = `${nbreMot}/${newCards.length}`;
+  nbrCarte.textContent = `${nbreMot}/${testO.length}`;
   correct.textContent = `${vrai.length}`;
   
   // setTimeout(() => recapitul(),1000);
-   recapitul()
+   recapitul(testO)
   //  createCard()
 })
  }
- newEtape()
+ newEtape(testO)
 
  //----------------------------carte à revoir-------------------
- function newEtapeRevision(){
+ function newEtapeRevision(testO){
   cardRevision.addEventListener("click", function(){
      cardRevision.classList.add("fa-shake");
     divMot.textContent = "";
@@ -141,16 +204,16 @@ cardCorrect.addEventListener("click", function(){
     nbreMot += 1;
     faux.push(nbreMot);
     console.log(faux.length);
-    nbrCarte.textContent = `${nbreMot}/${newCards.length}`;
+    nbrCarte.textContent = `${nbreMot}/${testO.length}`;
     revision.textContent = `${faux.length}`;
-     recapitul()
+     recapitul(testO)
   })
   
    }
-   newEtapeRevision()
+   newEtapeRevision(testO)
 
    //---------compare nbre de carte avec le nbre total---------------------------
-   function compare(){doubleFace.style.display = "none";
+   function compare(testO){doubleFace.style.display = "none";
    final.style.display = "flex";
    complet.style.display = "none";
 
@@ -162,13 +225,13 @@ cardCorrect.addEventListener("click", function(){
    
     <span>${faux.length}</span> mauvaise(s) réponse(s)</div>`
 
-    if(vrai.length >= (80*(newCards.length))/100){
+    if(vrai.length >= (80*(testO.length))/100){
      conseil.innerHTML = ` Félicitation!!
      <br>
      Continuez!! votre apprentissage,
      <br>
      vous etes sur la bonne voix!!`
-    }else if(vrai.length >= (50*(newCards.length))/100){
+    }else if(vrai.length >= (50*(testO.length))/100){
      conseil.innerHTML = ` Très bien !!
      <br>
      Ne lachez pas prise!!,
@@ -186,19 +249,23 @@ cardCorrect.addEventListener("click", function(){
    
    //------------le temps d'apparition du resultat-------------------------
 
-    function recapitul(){
-      if (nbreMot === newCards.length){
+    function recapitul(testO){
+      if (nbreMot < testO.length){
         // cards.innerHTML = "";
-        setTimeout(() => compare(),500);
+        createCard(testO);
+        // setTimeout(() => compare(testO),500);
          
       }else{
-        createCard()
+        // createCard(testO)
+        setTimeout(() => compare(testO),500);
       }
      }
-     recapitul()
-
+    //  recapitul(testO)
+  //-----------------------remise 
      restart.addEventListener("click", function(){
       location.reload();
      })
 
    console.log(final);
+
+  
