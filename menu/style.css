@@ -50,7 +50,7 @@
     /* animation: myAnim 1s ease 0s 1 normal forwards; */
   }
 
-  /* .sentence {
+   .sentence {
     
     animation: myAnim 1s ease 0s 1 normal forwards;
     opacity: 0;
@@ -58,7 +58,7 @@
 
   @keyframes myAnim {
 	0% {
-		opacity: 0;
+		/* opacity: 0; */
 		transform: translateX(-250px);
 	}
 
@@ -72,12 +72,13 @@ img{
     width: 50px;
 }
 
-.expression {
+ .expression {
     animation: anim2 1s ease 0.2s 1 normal forwards;
+    opacity: 0;
 }
 @keyframes anim2 {
 	0% {
-		opacity: 0;
+
 		transform: translateX(250px);
 	}
 
@@ -87,12 +88,13 @@ img{
 	}
 }
 
-.vocabulaire {
+.abc {
     animation: myAnim3 1s ease 0.4s 1 normal forwards; 
+    opacity: 0;
 }
 @keyframes myAnim3 {
 	0% {
-		opacity: 0;
+		/* opacity: 0; */
 		transform: translateX(-250px);
 	}
 
@@ -101,7 +103,7 @@ img{
 		transform: translateX(0);
 	}
 }
- */
+ 
 img{
     width: 50px;
-}
+} 
