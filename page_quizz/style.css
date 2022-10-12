@@ -176,8 +176,8 @@
   }
 
 img{
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 110px;
   
 }
 
@@ -224,6 +224,14 @@ span{
 .commentaire{
 display: block;
 margin: 0 auto;
-width: 250px;
-height: 250px;
+/* width: 250px;
+height: 250px; */
+}
+.podium {
+  width: 100px;
+  height: 100px;
+}
+.logoDouble {
+  width: 150px;
+  height: 150px;
 }

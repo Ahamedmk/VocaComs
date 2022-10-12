@@ -228,6 +228,8 @@ cardCorrect.addEventListener("click", function(){
     if(vrai.length >= (80*(testO.length))/100){
      conseil.innerHTML = ` Félicitation!!
      <br>
+     <img src="LOGO/podium.png" alt="podium" class="podium"/>
+     <br>
      Continuez!! votre apprentissage,
      <br>
      vous etes sur la bonne voix!!`
