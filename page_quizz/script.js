@@ -95,27 +95,28 @@ let vrai = [];
    complet.style.display = "block";
    doubleFace.style.display = "block";
    correct.innerHTML = "";
-   revision.innerHTML = "";
-   nbrCarte.innerHTML = "";
-  nbreMot = 0;
-   faux = [];
-   vrai = [];
+    revision.innerHTML = "";
+    nbrCarte.innerHTML = "";
+    nbreMot = 0;
+   faux.length = 0;
+   vrai.length = 0;
    console.log(nbreMot)
     // location.reload();
    
   console.log(testO);
   createCard(testO);
-   newEtape(testO);
-  newEtapeRevision(testO);
-  console.log(nbreMot);
-  recapitul(testO);
-  console.log(faux.length);
+  newEtape(testO);
+  // newEtapeRevision(testO);
+  // console.log(nbreMot);
+  //  recapitul(testO);
+  // console.log(faux.length);
 })
 
 //---------------------créer la carte -----------------------------
 
 function createCard (testO){ 
   // const wordMotComs = testO[nbreMot].motComorien;
+  nbrCarte.textContent = `${nbreMot + 1}/${testO.length}`;
   divMot.textContent = testO[nbreMot].motComorien;
   divMotFr.textContent = testO[nbreMot].motFr;
   motComs.appendChild(divMot);
@@ -185,15 +186,14 @@ cardCorrect.addEventListener("click", function(){
   divMotFr.textContent = "";
   nbreMot += 1;
   vrai.push(nbreMot);
-  nbrCarte.textContent = `${nbreMot}/${testO.length}`;
+  // nbrCarte.textContent = `${nbreMot}/${testO.length}`;
   correct.textContent = `${vrai.length}`;
-  
   // setTimeout(() => recapitul(),1000);
    recapitul(testO)
   //  createCard()
 })
  }
- newEtape(testO)
+  newEtape(testO)
 
  //----------------------------carte à revoir-------------------
  function newEtapeRevision(testO){
@@ -204,7 +204,7 @@ cardCorrect.addEventListener("click", function(){
     nbreMot += 1;
     faux.push(nbreMot);
     console.log(faux.length);
-    nbrCarte.textContent = `${nbreMot}/${testO.length}`;
+    // nbrCarte.textContent = `${nbreMot}/${testO.length}`;
     revision.textContent = `${faux.length}`;
      recapitul(testO)
   })
