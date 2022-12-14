@@ -53,6 +53,25 @@ const newCardsPro = [
   }
 ];
 
+
+const essaie = [
+  {
+    motComorien: "ntso",
+    motFr: "venir",
+  },
+  {
+    motComorien: "gamjo",
+    motFr: "je viens",
+  },
+  {
+    motComorien: "lawa",
+    motFr: "part",
+  },
+  {
+    motComorien: "chioni",
+    motFr: "ecole",
+  }
+]
 const body = document.querySelector("body");
 const final = document.querySelector(".final");
 const restart = document.querySelector(".restart");
@@ -86,29 +105,41 @@ let nbreMot = 0;
 let faux = [];
 let vrai = [];
 
+
+// function cardfinaliste(essaie) {
+  
+//   createCard(essaie);
+//   newEtape(essaie);
+//   newEtapeRevision(essaie);
+//   // console.log(nbreMot);
+//   recapitul(essaie);
+// }
+
  //-------------------testo--------------------
  revoir.addEventListener("click", function() {
   //  complet.innerHTML = "";
   //  createCard(newCards);
+  // let testO = essaie;
   testO = newCardsPro;
    final.style.display = "none";
    complet.style.display = "block";
    doubleFace.style.display = "block";
-   correct.innerHTML = "";
-    revision.innerHTML = "";
-    nbrCarte.innerHTML = "";
+   correct.innerHTML = 0;
+    revision.innerHTML = 0;
+    nbrCarte.innerHTML = 0;
     nbreMot = 0;
-   faux.length = 0;
-   vrai.length = 0;
-   console.log(nbreMot)
+   faux.length = [];
+   vrai.length = [];
+  console.log(nbreMot)
     // location.reload();
+   createCard(newCardsPro);
    
-  console.log(testO);
-  createCard(testO);
-  newEtape(testO);
-  // newEtapeRevision(testO);
-  // console.log(nbreMot);
-  //  recapitul(testO);
+   
+   ;
+   
+   
+  
+  
   // console.log(faux.length);
 })
 
@@ -123,8 +154,15 @@ function createCard (testO){
   motComs.appendChild(listen);
   divMotFr.className = "fr";
   motTrad.appendChild(divMotFr);
+  // newEtapeRevision(testO);
+  // console.log(nbreMot);
+  // recapitul(testO);
+  
    }
-  createCard(testO)
+  createCard(testO);
+  
+  
+  
   
 
 //---les audios---------------------
@@ -180,37 +218,46 @@ faEye.addEventListener("click", function () {
 
 
  //------------------réponse ok-----------------------
- function newEtape(testO){
+ function newEtape(){
 cardCorrect.addEventListener("click", function(){
   divMot.textContent = "";
   divMotFr.textContent = "";
-  nbreMot += 1;
-  vrai.push(nbreMot);
-  // nbrCarte.textContent = `${nbreMot}/${testO.length}`;
-  correct.textContent = `${vrai.length}`;
-  // setTimeout(() => recapitul(),1000);
+  // if (nbreMot < testO.length){
+   nbreMot += 1;
+   vrai.push(nbreMot);
+  // // nbrCarte.textContent = `${nbreMot}/${testO.length}`;
+   correct.textContent = `${vrai.length}`;
+  // // setTimeout(() => recapitul(),1000);
    recapitul(testO)
+  // } else if {
+  //   nbreMot = 0
+  // }
   //  createCard()
+  console.log(`le nombre de vrai:${vrai.length}`);
+  console.log(`le nombre de mot ${nbreMot}`)
 })
  }
-  newEtape(testO)
+ newEtape()
 
  //----------------------------carte à revoir-------------------
- function newEtapeRevision(testO){
+ function newEtapeRevision(){
   cardRevision.addEventListener("click", function(){
      cardRevision.classList.add("fa-shake");
     divMot.textContent = "";
     divMotFr.textContent = "";
     nbreMot += 1;
     faux.push(nbreMot);
-    console.log(faux.length);
+    // console.log(faux.length);
     // nbrCarte.textContent = `${nbreMot}/${testO.length}`;
+    console.log(`le nombre de faux:${faux.length}`);
     revision.textContent = `${faux.length}`;
+    
      recapitul(testO)
+     console.log(`le nombre de mot ${nbreMot}`)
   })
   
    }
-   newEtapeRevision(testO)
+    newEtapeRevision()
 
    //---------compare nbre de carte avec le nbre total---------------------------
    function compare(testO){doubleFace.style.display = "none";
@@ -259,6 +306,9 @@ cardCorrect.addEventListener("click", function(){
          
       }else{
         // createCard(testO)
+        // vrai.length = 0;
+        // faux.length = 0;
+        console.log (faux.length);
         setTimeout(() => compare(testO),500);
       }
      }
@@ -267,7 +317,7 @@ cardCorrect.addEventListener("click", function(){
      restart.addEventListener("click", function(){
       location.reload();
      })
-
+    // recapitul(testO);
    console.log(final);
 
   
